@@ -4,24 +4,27 @@ from tkinter.font import Font
 
 root = Tk()
 
+# Defining title of the project
 root.title("Simple Calculator")
+
+# To insert an icon
 root.iconbitmap('C:/calculator.ico')
 
-
+# Defining the entry box
 e = Entry(root, width=12, borderwidth=15,font=('Cambria',50) )
-e.grid(row=0, column=0, columnspan=15, ipadx=20, ipady= 20)
+e.grid(row=0, column=0, columnspan=15, ipadx=20, ipady= 20 )
 
-
+# Function for click button
 def button_click(number):
     current = e.get()
     e.delete(0, END)
     e.insert(0, str(current) + str(number))
 
-
+# Function to clear the screen
 def button_clear():
     e.delete(0, END)
 
-
+# Function for addition
 def button_add():
     first_number = e.get()
     global f_num
@@ -32,6 +35,7 @@ def button_add():
     e.delete(0, END)
 
 
+# Function for subtraction
 def button_subtraction():
     third_number = e.get()
     global f_num
@@ -40,6 +44,7 @@ def button_subtraction():
     action = "sub"
     e.delete(0, END)
 
+# Function for multiply
 def button_multiply():
     fourth_number = e.get()
     global f_num
@@ -49,6 +54,7 @@ def button_multiply():
     e.delete(0, END)
 
 
+# Function for divide
 def button_divide():
     fifth_number = int(e.get())
     global f_num
@@ -57,6 +63,7 @@ def button_divide():
     action = "divide"
     e.delete(0, END)
 
+# Function for exponent
 def button_exp():
     sixth_number = int(e.get())
     global f_num
@@ -65,6 +72,7 @@ def button_exp():
     action = "exp"
     e.delete(0, END)
 
+# Function for percentage
 def button_percentage():
     seventh_number = int(e.get())
     global f_num
@@ -73,7 +81,7 @@ def button_percentage():
     action = "percentage"
     e.delete(0, END)
 
-
+# Function for equals to
 def button_equal():
     second_number = str(e.get())
     e.delete(0, END)
@@ -100,7 +108,7 @@ def button_equal():
 
 
 
-# defining buttons
+# Defining the buttons
 button_1 = Button(root, text="1", padx=40, pady=20, fg="black", bg="white",bd =1, font=('Cambria', 30), command=lambda: button_click(1))
 button_2 = Button(root, text="2", padx=40, pady=20, fg="black", bg="white",bd=1, font=('Cambria', 30), command=lambda: button_click(2))
 button_3 = Button(root, text="3", padx=40, pady=20, fg="black", bg="white",bd=1, font=('Cambria', 30), command=lambda: button_click(3))
@@ -119,7 +127,8 @@ button_equal = Button(root, text="=", padx=105,  fg="black", bg="white",bd=1, pa
 button_clear = Button(root, text="C", padx=105, fg="black", bg="white", pady=20,bd=1,  font=('Cambria', 30), command=button_clear)
 button_exp = Button(root, text="^", padx=40, pady= 20, fg="black", bg="white",bd=1, font=("Cambria", 30), command=button_exp)
 button_percentage = Button(root, text="Mod", padx=10, pady=20, fg="black", bg="white", bd=1, font=("Cambria", 30), command=button_percentage)
-# putting buttons
+
+# Arranging the buttons
 button_1.grid(row=3, column=0)
 button_2.grid(row=3, column=1)
 button_3.grid(row=3, column=2)
@@ -144,4 +153,5 @@ button_percentage.grid(row=4, column=3 )
 
 button_clear.grid(row=5, column=0,columnspan=2)
 button_equal.grid(row=5, column=2,columnspan=4 )
+
 root.mainloop()
